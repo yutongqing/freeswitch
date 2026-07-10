@@ -2283,6 +2283,7 @@ int sofia_recover_callback(switch_core_session_t *session)
 	int r = 0;
 	const char *profile_name = switch_channel_get_variable_dup(channel, "recovery_profile_name", SWITCH_FALSE, -1);
 	int swap = switch_channel_var_true(channel, "dlg_req_swap_direction");
+	switch_channel_set_variable(channel, "dlg_req_swap_direction", "false");
 
 	if (zstr(profile_name)) {
 		switch_log_printf(SWITCH_CHANNEL_SESSION_LOG(session), SWITCH_LOG_CRIT, "Missing profile\n");
